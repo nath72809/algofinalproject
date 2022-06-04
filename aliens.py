@@ -23,9 +23,25 @@ class Bullet(GameSprite):
         self.rect.y += self.speed
         if self.rect.y < 0:
            self.kill()
+finish = False
+run = True
+while run:
+    for e in event.get():
+        if e.type == QUIT:
+            run = False
+        elif e.type == KEYDOWN:
+            if e.key == K_SPACE:
+                fire_sound.play()
+                ship.fire()
+ 
+    if not finish:
+        window.blit(background,(0,0))
 
-game = True
+        Bullet.update()
 
-while game != False:
-    pygame.display.update()
-    clock.tick(40)
+
+
+
+
+            
+
