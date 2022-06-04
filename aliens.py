@@ -5,7 +5,28 @@ width = 800
 height = 600
 window = pygame.display.set_mode((width, height))
 clock = time.Clock()
-
+#главный класс
+class GameSprite(sprite.Sprite):
+   def __init__(self, y, x, player_image, player_x, player_y, player_speed):
+       super().__init__()
+       self.image = transform.scale(image.load(player_image), (x, y))
+       self.speed = player_speed
+       self.rect = self.image.get_rect()
+       self.rect.x = player_x
+       self.rect.y = player_y
+ 
+   def reset(self):
+       window.blit(self.image, (self.rect.x, self.rect.y))
+#класс врагов
+class Emeny(GameSprite):
+    def update(self):
+        if self.rect.x >= 50:
+            self.rect.x -= 50
+        else:
+            self.rect.y += 50
+        
+            
+            
 #управление
 class Player(GameSprite):
     def update(self):
