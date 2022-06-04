@@ -1,0 +1,39 @@
+from pygame import *
+
+font.init()
+font2 = font.SysFont('Arial', 36)
+
+back = (1,255, 40)
+win_width = 1280
+win_height = 720
+window = display.set_mode((win_width, win_height))
+display.set_caption("IGRA")
+
+score1 = 0
+h_lines = []
+v_lines = []
+
+for i in range(10):
+    line = (win_width/(10-i))
+    h_lines.append(line)
+for r in range(10):
+    line = (win_width/(10-r))
+    v_lines.append(line)
+
+game = True
+finish = False
+clock = time.Clock()
+FPS = 60
+
+while game:
+    for e in event.get():
+        if e.type == QUIT:
+            game = False
+
+    if finish != True:
+        window.fill(back)
+        text = font2.render("score: " + str(score1), 1, (10,1,255))
+        window.blit(text, (h_lines[1], v_lines[1]))
+
+    display.update()
+    clock.tick(FPS)
