@@ -26,7 +26,8 @@ class Bullet(GameSprite):
            global bullet_shot = False
 
 game = True
-
+finish = False
+run = True
 bullet_shot = False
 
 while game != False:
@@ -36,9 +37,7 @@ while game != False:
     if ent.key = Key_Space and bullet_shot == False:
         player.fire()
         
-finish = False
-run = True
-while run:
+
     for e in event.get():
         if e.type == QUIT:
             run = False
