@@ -23,6 +23,19 @@ class Bullet(GameSprite):
         self.rect.y += self.speed
         if self.rect.y < 0:
            self.kill()
+           global bullet_shot = False
+
+game = True
+
+bullet_shot = False
+
+while game != False:
+    pygame.display.update()
+    clock.tick(40)
+
+    if ent.key = Key_Space and bullet_shot == False:
+        player.fire()
+        
 finish = False
 run = True
 while run:
